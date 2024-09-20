@@ -8,14 +8,21 @@ variable "name" {
   type        = string
   description = "The name of the this resource graph query."
 
-  validation {
-    condition     = can(regex("TODO", var.name))
-    error_message = "The name must be TODO." # TODO remove the example below once complete:
-    #condition     = can(regex("^[a-z0-9]{5,50}$", var.name))
-    #error_message = "The name must be between 5 and 50 characters long and can only contain lowercase letters and numbers."
-  }
+
 }
 
+variable "description" {
+  type = string
+  description = "provide description for the query"
+  default = null
+  
+}
+
+variable "query_string" {
+  type = string
+  description = "Query string for the Resource Graph Query"
+  nullable = false
+}
 
 
 # This is required for most resource modules
