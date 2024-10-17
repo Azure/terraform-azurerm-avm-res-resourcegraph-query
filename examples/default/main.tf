@@ -5,10 +5,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 3.74"
     }
-    modtm = {
-      source  = "azure/modtm"
-      version = "~> 0.3"
-    }
     random = {
       source  = "hashicorp/random"
       version = "~> 3.5"
@@ -58,7 +54,7 @@ module "query" {
   location            = azurerm_resource_group.this.location
   name                = "tenresources1" # TODO update with module.naming.<RESOURCE_TYPE>.name_unique
   resource_group_name = azurerm_resource_group.this.name
-  query_string = "resources | take 10"
-  description = "any 10 resources"
-  enable_telemetry = var.enable_telemetry # see variables.tf
+  query_string        = "resources | take 10"
+  description         = "any 10 resources"
+  enable_telemetry    = var.enable_telemetry # see variables.tf
 }
