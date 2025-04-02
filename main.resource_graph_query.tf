@@ -5,13 +5,13 @@ data "azurerm_resource_group" "this" {
 
 resource "azapi_resource" "query" {
   type = "Microsoft.ResourceGraph/queries@2018-09-01-preview"
-  body = jsonencode({
+  body = {
     properties = {
       description = var.description
       query       = var.query_string
     }
 
-  })
+  }
   location  = var.location
   name      = var.name
   parent_id = data.azurerm_resource_group.this.id
