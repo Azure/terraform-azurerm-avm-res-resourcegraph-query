@@ -40,7 +40,7 @@ module "query" {
   source = "../../"
   # source             = "Azure/avm-<res/ptn>-<name>/azurerm"
   # ...
-  location            = azurerm_resource_group.this.location
+  location            = "global"
   name                = "tenresources"
   resource_group_name = azurerm_resource_group.this.name
   query_string        = "resources | take 10"
