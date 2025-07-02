@@ -1,5 +1,6 @@
 terraform {
   required_version = ">= 1.9, < 2.0"
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -32,12 +33,13 @@ resource "azurerm_resource_group" "this" {
 # with a data source.
 module "query" {
   source = "../../"
+
   # source             = "Azure/avm-<res/ptn>-<name>/azurerm"
   # ...
   location            = "global"
   name                = "tenresources"
-  resource_group_name = azurerm_resource_group.this.name
   query_string        = "resources | take 10"
+  resource_group_name = azurerm_resource_group.this.name
   description         = "any 10 resources"
   enable_telemetry    = var.enable_telemetry # see variables.tf
 }
