@@ -2,7 +2,6 @@ data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
 
-
 resource "azapi_resource" "query" {
   location  = var.location
   name      = var.name
