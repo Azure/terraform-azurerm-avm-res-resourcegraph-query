@@ -48,7 +48,7 @@ module "query" {
   query_string        = "resources | take 10"
   resource_group_name = azurerm_resource_group.this.name
   description         = "any 10 resources"
-  enable_telemetry    = var.enable_telemetry # see variables.tf
+  enable_telemetry    = false # see variables.tf
 }
 ```
 
